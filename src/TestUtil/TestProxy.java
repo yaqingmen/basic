@@ -19,7 +19,7 @@ public class TestProxy {
     @Test
     public void TestCglibProxyImpl() {
         cglibProxyImpl cglib = new cglibProxyImpl();
-        ReflectServiceImpl proxy = (ReflectServiceImpl)cglib.getProxy(ReflectServiceImpl.class);
+        ReflectServiceImpl proxy = (ReflectServiceImpl)cglib.getProxy(ReflectServiceImpl2.class);
         proxy.sayHello("门亚清");
     }
 }
