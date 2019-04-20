@@ -1,13 +1,11 @@
 package TestUtil;
 
 import org.junit.jupiter.api.Test;
-import reflect.Hello;
-import reflect.HelloImpl;
-import reflect.jdkProxyImpl;
+import reflect.*;
 
-public class TestJdkProxyImpl {
+public class TestProxy {
     @Test
-    public void test(){
+    public void TestJdkProxyImpl(){
         jdkProxyImpl jdk = new jdkProxyImpl();
         Hello proxy = (Hello)jdk.bind(new HelloImpl());
         proxy.sayHelloWorld();
@@ -16,5 +14,12 @@ public class TestJdkProxyImpl {
         System.out.println("-----------");
         System.out.println(proxy.add(3,4));
         System.out.println("-----------");
+    }
+
+    @Test
+    public void TestCglibProxyImpl() {
+        cglibProxyImpl cglib = new cglibProxyImpl();
+        ReflectServiceImpl proxy = (ReflectServiceImpl)cglib.getProxy(ReflectServiceImpl.class);
+        proxy.sayHello("门亚清");
     }
 }
